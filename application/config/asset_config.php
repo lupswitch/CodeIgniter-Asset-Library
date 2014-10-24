@@ -28,4 +28,47 @@
  * @filesource
 */
 
+/*
+|--------------------------------------------------------------------------
+| Enable Assets Library
+|--------------------------------------------------------------------------
+|
+|	Enable Assets library in your project.
+|
+*/
+$config['assets']['enable'] 			= true;
+
+/*
+|--------------------------------------------------------------------------
+| Assets https access
+|--------------------------------------------------------------------------
+|
+|	Enable https access for asset files.
+|
+*/
+$config['assets']['https']				= true;
+
+
+/*
+|--------------------------------------------------------------------------
+| Assets path
+|--------------------------------------------------------------------------
+|
+|	Assets path in your project. Could be like:
+|
+|	*Project root
+|	|-- application
+|	|-- system
+|	|-- assets
+|	|   |-- css
+|	|   |-- js
+|	|   |-- images
+|
+|	You can add more type of assets. 
+*/
+$config['assets']['path']['css'] 		= "assets/css";
+$config['assets']['path']['js'] 		= "assets/js";
+$config['assets']['path']['images'] 	= "assets/images";
+$config['assets']['path']['less'] 		= "assets/less";
+
 
