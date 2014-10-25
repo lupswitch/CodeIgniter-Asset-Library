@@ -38,6 +38,19 @@
 */
 $config['assets']['enable'] 			= true;
 
+
+/*
+|--------------------------------------------------------------------------
+| Asset Files version
+|--------------------------------------------------------------------------
+|
+|	In order to clean web browser cache for javascript and 
+|	css asset files, update version.
+|	
+|
+*/
+$config['assets']['version'] 			= 1;
+
 /*
 |--------------------------------------------------------------------------
 | Assets https access
@@ -71,4 +84,14 @@ $config['assets']['path']['js'] 		= "assets/js";
 $config['assets']['path']['images'] 	= "assets/images";
 $config['assets']['path']['less'] 		= "assets/less";
 
-
+/*
+|--------------------------------------------------------------------------
+| Assets output format
+|--------------------------------------------------------------------------
+|
+|	Assets output format in html
+*/
+$config['assets']['format']['css'] = '<link type="text/css" rel="stylesheet" href="{:url:}">';
+$config['assets']['format']['js'] = '<script src="{:url:}" type="text/javascript" charset="utf-8"></script>';
+$config['assets']['format']['image'] = '<img src="{:url:}">';
+$config['assets']['format']['less'] = '<link rel="stylesheet/less" type="text/css" href="{:url:}">';
