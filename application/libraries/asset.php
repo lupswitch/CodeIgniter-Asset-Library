@@ -27,3 +27,37 @@
  * @updated			24th Oct 2014
  * @filesource
 */
+
+class Asset {
+	private $asset = array();
+	public function __construct($params = array())
+    {
+        
+    }
+
+    public function add($files = array())
+    {
+
+    }
+
+    public function add($file, $file_index_name)
+    {
+
+    }
+
+    public function load($file_index_name)
+    {
+
+    }
+
+    public function load($file_index_names = array())
+    {
+
+    }
+
+    public function output()
+    {
+
+    }
+
+}
