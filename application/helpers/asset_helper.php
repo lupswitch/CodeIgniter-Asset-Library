@@ -27,3 +27,36 @@
  * @updated			24th Oct 2014
  * @filesource
 */
+
+if ( ! function_exists('asset_css'))
+{
+	function asset_css($file = "", $https = false)
+	{
+
+	}
+}
+
+if ( ! function_exists('asset_js'))
+{
+	function asset_js($file = "", $https = false)
+	{
+
+	}
+}
+
+if ( ! function_exists('asset_image'))
+{
+	function asset_image($file = "", $https = false)
+	{
+
+	}
+}
+
+if ( ! function_exists('asset_less'))
+{
+	function asset_less($file = "", $https = false)
+	{
+
+	}
+}
+
