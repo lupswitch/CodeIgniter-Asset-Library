@@ -32,7 +32,9 @@ if ( ! function_exists('asset_css'))
 {
 	function asset_css($file = "", $https = false)
 	{
-
+		$CI =& get_instance();
+		$CI->load->library('asset');
+		return $CI->output_css($file, $https);
 	}
 }
 
@@ -40,7 +42,9 @@ if ( ! function_exists('asset_js'))
 {
 	function asset_js($file = "", $https = false)
 	{
-
+		$CI =& get_instance();
+		$CI->load->library('asset');
+		return $CI->output_js($file, $https);
 	}
 }
 
@@ -48,15 +52,19 @@ if ( ! function_exists('asset_image'))
 {
 	function asset_image($file = "", $https = false)
 	{
-
+		$CI =& get_instance();
+		$CI->load->library('asset');
+		return $CI->output_image($file, $https);
 	}
 }
 
 if ( ! function_exists('asset_less'))
 {
-	function asset_less($file = "", $https = false)
+	function asset_less($file = "")
 	{
-
+		$CI =& get_instance();
+		$CI->load->library('asset');
+		return $CI->output_less($file, $https);
 	}
 }
 
