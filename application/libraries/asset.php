@@ -29,8 +29,15 @@
 */
 
 class Asset {
-	private $asset = array();
-	public function __construct($params = array())
+	private $asset              = array();
+    private $enable             = false;
+    private $path               = array();
+    private $asset_path         = "";
+    private $version            = "";
+    private $format             = array();
+	private $asset_format       = "";
+    
+    public function __construct($params = array())
     {
         
     }
@@ -55,9 +62,79 @@ class Asset {
 
     }
 
-    public function output()
+    public function output_css($file, $https)
     {
+        return $this->output_setting("css",$file, $https);
+    }
 
+    public function output_js($file, $https)
+    {
+        return $this->output_setting("js",$file, $https);
+    }
+
+    public function output_image($file, $https)
+    {
+        return $this->output_setting("image",$file, $https);
+    }
+
+    public function output_less($file, $https)
+    {
+        return $this->output_setting("less",$file, $https);
+    }
+
+
+
+    private function output_setting($type, $file, $https)
+    {
+        $CI =& get_instance();
+
+        $CI->load->config("asset_config");
+        
+        $assets_config = $CI->config->item('assets');
+
+        
+        if(isset($assets_config['enable']))
+        {
+            $this->enable = $assets_config['enable'];
+        }
+
+        if(isset($assets_config['version']))
+        {
+            $this->version = $assets_config['version'];
+        }
+
+        if(isset($assets_config['path']))
+        {
+            $this->path = $assets_config['path'];
+        }
+
+        if($this->path[$type])
+        {
+            $this->asset_path = $this->path[$type];
+        }
+
+        if(isset($this->assets_config['format']))
+        {
+            $this->format = $this->assets_config['format'];
+        }
+
+        if($this->format[$type])
+        {
+            $this->asset_format = $this->format[$type];
+        }
+
+        $url = site_url($this->asset_path.$file, $https);
+
+        $asset_output = str_replace("{:url:}", $url."?version=".$this->version, $this->asset_format);
+
+        if($this->enable)
+        {
+            return $asset_output;
+        }
+        else
+        {
+            return "";
+        }
     }
 
 }
