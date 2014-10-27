@@ -69,32 +69,32 @@ class Asset {
 
     private function add($type, $file)
     {
-        array_push($this->$asset[$type], $file);
+        array_push($this->asset[$type], $file);
     }
 
-    public function load_css($https)
+    public function load_css($https = false)
     {
         return $this->load("css", $https);
     }
 
-    public function load_js($https)
+    public function load_js($https = false)
     {
         return $this->load("js", $https);
     }
 
-    public function load_image($https)
+    public function load_image($https = false)
     {
         return $this->load("image", $https);
     }
 
-    public function load_less($https)
+    public function load_less($https = false)
     {
         return $this->load("less", $https);
     }
 
-    private function load($type, $https)
+    private function load($type, $https = false)
     {
-        $assets = $this->$asset[$type];
+        $assets = $this->asset[$type];
         $assets_output = "";
         if(!empty($assets))
         {
@@ -132,7 +132,7 @@ class Asset {
     private function output_setting($type, $file, $https)
     {
         $CI =& get_instance();
-
+        $CI->load->helper("url");
         $CI->load->config("asset_config");
         
         $assets_config = $CI->config->item('assets');
@@ -158,12 +158,12 @@ class Asset {
             $this->asset_path = $this->path[$type];
         }
 
-        if(isset($this->assets_config['format']))
+        if(isset($assets_config['format']))
         {
-            $this->format = $this->assets_config['format'];
+            $this->format = $assets_config['format'];
         }
-
-        if($this->format[$type])
+        
+        if(isset($this->format[$type]))
         {
             $this->asset_format = $this->format[$type];
         }

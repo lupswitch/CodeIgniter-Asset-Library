@@ -34,7 +34,7 @@ if ( ! function_exists('asset_css'))
 	{
 		$CI =& get_instance();
 		$CI->load->library('asset');
-		return $CI->output_css($file, $https);
+		return $CI->asset->output_css($file, $https);
 	}
 }
 
@@ -44,7 +44,7 @@ if ( ! function_exists('asset_js'))
 	{
 		$CI =& get_instance();
 		$CI->load->library('asset');
-		return $CI->output_js($file, $https);
+		return $CI->asset->output_js($file, $https);
 	}
 }
 
@@ -54,7 +54,7 @@ if ( ! function_exists('asset_image'))
 	{
 		$CI =& get_instance();
 		$CI->load->library('asset');
-		return $CI->output_image($file, $https);
+		return $CI->asset->output_image($file, $https);
 	}
 }
 
@@ -64,7 +64,7 @@ if ( ! function_exists('asset_less'))
 	{
 		$CI =& get_instance();
 		$CI->load->library('asset');
-		return $CI->output_less($file, $https);
+		return $CI->asset->output_less($file, $https);
 	}
 }
 
