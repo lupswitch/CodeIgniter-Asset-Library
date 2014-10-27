@@ -29,7 +29,12 @@
 */
 
 class Asset {
-	private $asset              = array();
+	private $asset              = array(
+                "css"               =>  array()
+            ,   "js"                =>  array()
+            ,   "image"             =>  array()
+            ,   "less"              =>  array()
+        );
     private $enable             = false;
     private $path               = array();
     private $asset_path         = "";
@@ -42,24 +47,64 @@ class Asset {
         
     }
 
-    public function add($files = array())
+    public function add_css($file)
     {
-
+        $this->add("css", $file);
     }
 
-    public function add($file, $file_index_name)
+    public function add_js($file)
     {
-
+        $this->add("js", $file);
     }
 
-    public function load($file_index_name)
+    public function add_image($file)
     {
-
+        $this->add("image", $file);
     }
 
-    public function load($file_index_names = array())
+    public function add_less($file)
     {
+        $this->add("less", $file);
+    }
 
+    private function add($type, $file)
+    {
+        array_push($this->$asset[$type], $file);
+    }
+
+    public function load_css($https)
+    {
+        return $this->load("css", $https);
+    }
+
+    public function load_js($https)
+    {
+        return $this->load("js", $https);
+    }
+
+    public function load_image($https)
+    {
+        return $this->load("image", $https);
+    }
+
+    public function load_less($https)
+    {
+        return $this->load("less", $https);
+    }
+
+    private function load($type, $https)
+    {
+        $assets = $this->$asset[$type];
+        $assets_output = "";
+        if(!empty($assets))
+        {
+            foreach($assets as $asset)
+            {
+                $assets_output .= $this->output_css($asset, $https);
+            }
+        }
+        
+        return $assets_output;
     }
 
     public function output_css($file, $https)
