@@ -47,6 +47,27 @@ class Asset {
         
     }
 
+    public function add_assets($type, $files)
+    {
+        if(is_array($files))
+        {
+            switch($type)
+            {
+                case "css":
+                case "js":
+                case "image":
+                case "less":
+                    $assets             = $this->asset[$type];
+                    $assets             = array_merge($assets, $files);
+                    $this->asset[$type] = $assets;
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+
     public function add_css($file)
     {
         $this->add("css", $file);
@@ -100,7 +121,24 @@ class Asset {
         {
             foreach($assets as $asset)
             {
-                $assets_output .= $this->output_css($asset, $https);
+                
+                switch($type)
+                {
+                    case "css":
+                        $assets_output .= $this->output_css     ($asset, $https);
+                        break;
+                    case "js":
+                        $assets_output .= $this->output_js      ($asset, $https);
+                        break;
+                    case "image":
+                        $assets_output .= $this->output_image   ($asset, $https);
+                        break;
+                    case "less":
+                        $assets_output .= $this->output_less    ($asset, $https);
+                        break;
+                    default:
+                        break;
+                }
             }
         }
         

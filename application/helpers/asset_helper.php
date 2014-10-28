@@ -28,6 +28,71 @@
  * @filesource
 */
 
+if ( ! function_exists('load_assets'))
+{
+	function load_assets($type, $https = false)
+	{
+		$CI =& get_instance();
+		$CI->load->library('asset');
+		$output = "";
+		switch($type)
+		{
+			case "css":
+				$output = $CI->asset->load_css		($https);
+				break;
+			case "js":
+				$output = $CI->asset->load_js 		($https);
+				break;
+			case "image":
+				$output = $CI->asset->load_image 		($https);
+				break;
+			case "less":
+				$output = $CI->asset->load_less	 	($https);
+				break;
+			default:
+				break;
+		}
+		return $output;
+	}
+}
+
+if ( ! function_exists('add_assets'))
+{
+	function add_assets($type = "", $files = "")
+	{
+		$CI =& get_instance();
+		$CI->load->library('asset');
+		$CI->asset->add_assets($type, $files);
+	}
+}
+
+
+if ( ! function_exists('add_asset'))
+{
+	function add_asset($type = "", $file = "")
+	{
+		$CI =& get_instance();
+		$CI->load->library('asset');
+		switch($type)
+		{
+			case "css":
+				$CI->asset->add_css		($file);
+				break;
+			case "js":
+				$CI->asset->add_js 		($file);
+				break;
+			case "image":
+				$CI->asset->add_image 	($file);
+				break;
+			case "less":
+				$CI->asset->add_less 	($file);
+				break;
+			default:
+				break;
+		}
+	}
+}
+
 if ( ! function_exists('asset_css'))
 {
 	function asset_css($file = "", $https = false)
