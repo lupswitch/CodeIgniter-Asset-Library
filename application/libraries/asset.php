@@ -47,7 +47,17 @@ class Asset {
         
     }
 
-    public function add_assets($type, $files)
+    /**
+     * Add asset files
+     *
+     * add multiple asset files
+     *
+     * @access  public
+     * @param   string  asset type
+     * @param   array   file name
+     * @return  null
+     */ 
+    public function add_assets($type, $files = array())
     {
         if(is_array($files))
         {
@@ -67,27 +77,72 @@ class Asset {
         }
     }
 
-
+    /**
+     * Add css file
+     *
+     * add single css file as asset
+     *
+     * @access  public
+     * @param   string  file name
+     * @return  null
+     */ 
     public function add_css($file)
     {
         $this->add("css", $file);
     }
 
+    /**
+     * Add js file
+     *
+     * add single js file as asset
+     *
+     * @access  public
+     * @param   string  file name
+     * @return  null
+     */ 
     public function add_js($file)
     {
         $this->add("js", $file);
     }
 
+    /**
+     * Add image file
+     *
+     * add single image file as asset
+     *
+     * @access  public
+     * @param   string  file name
+     * @return  null
+     */ 
     public function add_image($file)
     {
         $this->add("image", $file);
     }
 
+    /**
+     * Add less file
+     *
+     * add single less file as asset
+     *
+     * @access  public
+     * @param   string  file name
+     * @return  null
+     */ 
     public function add_less($file)
     {
         $this->add("less", $file);
     }
 
+    /**
+     * Add asset file
+     *
+     * add single file as asset
+     *
+     * @access  public
+     * @param   string  file type
+     * @param   string  file name
+     * @return  null
+     */ 
     private function add($type, $file)
     {
         array_push($this->asset[$type], $file);
