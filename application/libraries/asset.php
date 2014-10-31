@@ -148,26 +148,72 @@ class Asset {
         array_push($this->asset[$type], $file);
     }
 
+    /**
+     * Load css asset
+     *
+     * load single or multiple css asset
+     *
+     * @access  public
+     * @param   boolen  enable/disable https access
+     * @return  null
+     */
     public function load_css($https = false)
     {
         return $this->load("css", $https);
     }
 
+    /**
+     * Load js asset
+     *
+     * load single or multiple js asset
+     *
+     * @access  public
+     * @param   boolen  enable/disable https access
+     * @return  null
+     */
     public function load_js($https = false)
     {
         return $this->load("js", $https);
     }
 
+    /**
+     * Load image asset
+     *
+     * load single or multiple image asset
+     *
+     * @access  public
+     * @param   boolen  enable/disable https access
+     * @return  null
+     */
     public function load_image($https = false)
     {
         return $this->load("image", $https);
     }
 
+    /**
+     * Load less asset
+     *
+     * load single or multiple less asset
+     *
+     * @access  public
+     * @param   boolen  enable/disable https access
+     * @return  null
+     */
     public function load_less($https = false)
     {
         return $this->load("less", $https);
     }
 
+    /**
+     * Load assets
+     *
+     * load multiple asset file, and output html code
+     *
+     * @access  public
+     * @param   string  asset type
+     * @param   boolen  enable/disable https access
+     * @return  null
+     */
     private function load($type, $https = false)
     {
         $assets = $this->asset[$type];
