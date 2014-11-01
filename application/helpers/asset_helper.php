@@ -28,6 +28,17 @@
  * @filesource
 */
 
+
+/**
+ * Load assets
+ *
+ * load multiple asset file, and output html code
+ *
+ * @access  public
+ * @param   string  asset type
+ * @param   boolen  enable/disable https access
+ * @return  string
+ */
 if ( ! function_exists('load_assets'))
 {
 	function load_assets($type, $https = false)
@@ -44,7 +55,7 @@ if ( ! function_exists('load_assets'))
 				$output = $CI->asset->load_js 		($https);
 				break;
 			case "image":
-				$output = $CI->asset->load_image 		($https);
+				$output = $CI->asset->load_image 	($https);
 				break;
 			case "less":
 				$output = $CI->asset->load_less	 	($https);
@@ -56,6 +67,16 @@ if ( ! function_exists('load_assets'))
 	}
 }
 
+/**
+ * Add asset files
+ *
+ * add multiple asset files
+ *
+ * @access  public
+ * @param   string  asset type
+ * @param   array   file name
+ * @return  null
+ */ 
 if ( ! function_exists('add_assets'))
 {
 	function add_assets($type = "", $files = "")
@@ -66,7 +87,16 @@ if ( ! function_exists('add_assets'))
 	}
 }
 
-
+/**
+ * Add asset file
+ *
+ * add single file as asset
+ *
+ * @access  private
+ * @param   string  file type
+ * @param   string  file name
+ * @return  null
+ */
 if ( ! function_exists('add_asset'))
 {
 	function add_asset($type = "", $file = "")
@@ -93,43 +123,83 @@ if ( ! function_exists('add_asset'))
 	}
 }
 
+/**
+ * print out css asset as html
+ *
+ * print out css html element like <link type="text/css" href="" rel="stylesheet">
+ *
+ * @access  public
+ * @param   string  file name
+ * @param   boolen  enable/disable https access
+ * @return  string
+ */
 if ( ! function_exists('asset_css'))
 {
 	function asset_css($file = "", $https = false)
 	{
 		$CI =& get_instance();
 		$CI->load->library('asset');
-		return $CI->asset->output_css($file, $https);
+		return $CI->asset->asset_html_css($file, $https);
 	}
 }
 
+/**
+ * print out js asset as html
+ *
+ * print out js html element like <script type="text/javascript" src="">
+ *
+ * @access  public
+ * @param   string  file name
+ * @param   boolen  enable/disable https access
+ * @return  string
+ */
 if ( ! function_exists('asset_js'))
 {
 	function asset_js($file = "", $https = false)
 	{
 		$CI =& get_instance();
 		$CI->load->library('asset');
-		return $CI->asset->output_js($file, $https);
+		return $CI->asset->asset_html_js($file, $https);
 	}
 }
 
+/**
+ * print out image asset as html
+ *
+ * print out image html element like <img src="">
+ *
+ * @access  public
+ * @param   string  file name
+ * @param   boolen  enable/disable https access
+ * @return  string
+ */
 if ( ! function_exists('asset_image'))
 {
 	function asset_image($file = "", $https = false)
 	{
 		$CI =& get_instance();
 		$CI->load->library('asset');
-		return $CI->asset->output_image($file, $https);
+		return $CI->asset->asset_html_image($file, $https);
 	}
 }
 
+/**
+ * print out less asset as html
+ *
+ * print out less html element like <link rel="stylesheet/less" type="text/css" href="style.less">
+ *
+ * @access  public
+ * @param   string  file name
+ * @param   boolen  enable/disable https access
+ * @return  string
+ */
 if ( ! function_exists('asset_less'))
 {
 	function asset_less($file = "")
 	{
 		$CI =& get_instance();
 		$CI->load->library('asset');
-		return $CI->asset->output_less($file, $https);
+		return $CI->asset->asset_html_less($file, $https);
 	}
 }
 

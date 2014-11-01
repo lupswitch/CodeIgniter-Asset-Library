@@ -42,10 +42,7 @@ class Asset {
     private $format             = array();
 	private $asset_format       = "";
     
-    public function __construct($params = array())
-    {
-        
-    }
+    public function __construct($params = array()){}
 
     /**
      * Add asset files
@@ -138,7 +135,7 @@ class Asset {
      *
      * add single file as asset
      *
-     * @access  public
+     * @access  private
      * @param   string  file type
      * @param   string  file name
      * @return  null
@@ -212,7 +209,7 @@ class Asset {
      * @access  public
      * @param   string  asset type
      * @param   boolen  enable/disable https access
-     * @return  null
+     * @return  string
      */
     private function load($type, $https = false)
     {
@@ -226,16 +223,16 @@ class Asset {
                 switch($type)
                 {
                     case "css":
-                        $assets_output .= $this->output_css     ($asset, $https);
+                        $assets_output .= $this->asset_html_css     ($asset, $https);
                         break;
                     case "js":
-                        $assets_output .= $this->output_js      ($asset, $https);
+                        $assets_output .= $this->asset_html_js      ($asset, $https);
                         break;
                     case "image":
-                        $assets_output .= $this->output_image   ($asset, $https);
+                        $assets_output .= $this->asset_html_image   ($asset, $https);
                         break;
                     case "less":
-                        $assets_output .= $this->output_less    ($asset, $https);
+                        $assets_output .= $this->asset_html_less    ($asset, $https);
                         break;
                     default:
                         break;
@@ -246,29 +243,78 @@ class Asset {
         return $assets_output;
     }
 
-    public function output_css($file, $https)
+
+    /**
+     * print out css asset as html
+     *
+     * print out css html element like <link type="text/css" href="" rel="stylesheet">
+     *
+     * @access  public
+     * @param   string  file name
+     * @param   boolen  enable/disable https access
+     * @return  string
+     */
+    public function asset_html_css($file, $https)
     {
-        return $this->output_setting("css",$file, $https);
+        return $this->asset_html_setting("css",$file, $https);
     }
 
-    public function output_js($file, $https)
+    /**
+     * print out js asset as html
+     *
+     * print out js html element like <script type="text/javascript" src="">
+     *
+     * @access  public
+     * @param   string  file name
+     * @param   boolen  enable/disable https access
+     * @return  string
+     */
+    public function asset_html_js($file, $https)
     {
-        return $this->output_setting("js",$file, $https);
+        return $this->asset_html_setting("js",$file, $https);
     }
 
-    public function output_image($file, $https)
+    /**
+     * print out image asset as html
+     *
+     * print out image html element like <img src="">
+     *
+     * @access  public
+     * @param   string  file name
+     * @param   boolen  enable/disable https access
+     * @return  string
+     */
+    public function asset_html_image($file, $https)
     {
-        return $this->output_setting("image",$file, $https);
+        return $this->asset_html_setting("image",$file, $https);
     }
 
-    public function output_less($file, $https)
+    /**
+     * print out less asset as html
+     *
+     * print out less html element like <link rel="stylesheet/less" type="text/css" href="style.less">
+     *
+     * @access  public
+     * @param   string  file name
+     * @param   boolen  enable/disable https access
+     * @return  string
+     */
+    public function asset_html_less($file, $https)
     {
-        return $this->output_setting("less",$file, $https);
+        return $this->asset_html_setting("less",$file, $https);
     }
 
-
-
-    private function output_setting($type, $file, $https)
+    /**
+     * print out asset as html
+     *
+     * print out html element for different type such as css, js, less and image
+     *
+     * @access  private
+     * @param   string  file name
+     * @param   boolen  enable/disable https access
+     * @return  string
+     */
+    private function asset_html_setting($type, $file, $https)
     {
         $CI =& get_instance();
         $CI->load->helper("url");
@@ -307,7 +353,12 @@ class Asset {
             $this->asset_format = $this->format[$type];
         }
 
-        $url = site_url($this->asset_path.$file, $https);
+        $url = site_url($this->asset_path.$file);
+
+        if($https)
+        {
+            $url = str_replace('http://', 'https://', $url);
+        }
 
         $asset_output = str_replace("{:url:}", $url."?version=".$this->version, $this->asset_format);
 
