@@ -71,7 +71,7 @@ $config['assets']['version'] 			= 1;
 */
 $config['assets']['path']['css'] 		= "assets/css/";
 $config['assets']['path']['js'] 		= "assets/js/";
-$config['assets']['path']['images'] 	= "assets/images/";
+$config['assets']['path']['image'] 		= "assets/images/";
 $config['assets']['path']['less'] 		= "assets/less/";
 
 /*
