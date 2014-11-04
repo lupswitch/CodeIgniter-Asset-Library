@@ -16,7 +16,7 @@ The package includes three files
  - asset.php copy to application/library
 
 
-##Configuration
+##Asset Configuration
 ###1. Version number
 `$config['assets']['version'] 			= 1;`
 
@@ -46,3 +46,12 @@ Asset path is where project asset file storage at. Normally asset file could be 
 `$config['assets']['format']['less'] = '<link rel="stylesheet/less" type="text/css" href="{:url:}">';`
 
 HTML format that for asset script file in views. 
+
+
+###4. Auto loading helper and library
+Asset library and helper can be auto loading by CodeIgniter project. Add asset library and helper into `application/config/autoload.php`. 
+
+
+`$autoload['libraries'] 	= array('asset');`
+
+`$autoload['helper'] 		= array('asset_helper');`
