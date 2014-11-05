@@ -55,3 +55,26 @@ Asset library and helper can be auto loading by CodeIgniter project. Add asset l
 `$autoload['libraries'] 	= array('asset');`
 
 `$autoload['helper'] 		= array('asset_helper');`
+
+##Get Start
+###1. Loading Helper
+Asset helper can be auto load by autoload config. It also can be loaded on controller like: 
+```php
+class Welcome extends CI_Controller {
+  public function index()
+  {
+    $this->load->helper("asset_helper");
+    // your code
+  }
+}
+```
+###2. Add Assets(Helper)
+#####Add css asset
+`add_asset("css", "1.css");`
+#####Add less asset
+`add_asset("less", "2.less");`
+#####Add image asset
+`add_asset("image", "3.jpg");`
+#####Add js asset
+`add_asset("js", "4.js");`
+
