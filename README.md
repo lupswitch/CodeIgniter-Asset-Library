@@ -71,10 +71,47 @@ class Welcome extends CI_Controller {
 ###2. Add Assets(Helper)
 #####Add css asset
 `add_asset("css", "1.css");`
+
 #####Add less asset
 `add_asset("less", "2.less");`
+
 #####Add image asset
 `add_asset("image", "3.jpg");`
+
 #####Add js asset
 `add_asset("js", "4.js");`
 
+#####Add multiple CSS Assets 
+`add_assets('css', array('1.css', '2.css'))`
+
+#####Add multiple JS Assets 
+`add_assets('js', array('1.js', '2.js'))`
+
+#####Add multiple Image Assets 
+`add_assets('image', array('1.jpg', '2.png'))`
+
+#####Add multiple LESS Assets 
+`add_assets('less', array('1.less', '2.less'))`
+
+###3. Output Assets(Helper)
+Directly output asset without controller. following functions can be directly used at view html.
+#####Output CSS Asset
+`<?php echo asset_css("style/main.css", false); ?>`
+The HTML output will be like
+`<link type="text/css" rel="stylesheet" href="http://www.website.com/assets/css/style/main.css">`
+The base asset path `assets/css` can be changed at asset_config.php, and the output html format could be changed at config file as well. 
+
+Also, the asset https access could be turn of by
+`<?php echo asset_css("style/main.css", true); ?>`
+The HTML output will be like
+`<link type="text/css" rel="stylesheet" href="https://www.website.com/assets/css/style/main.css">`
+
+#####Output JS Asset
+`<?php echo asset_css("app/main.js", false); ?>`
+The HTML output will be like
+`<script src="http://www.website.com/assets/js/app/main.js" type="text/javascript" charset="utf-8"></script>`
+
+#####Output image Asset
+`<?php echo asset_css("product/sample.jpg", false); ?>`
+The HTML output will be like
+`<img src="http://www.website.com/assets/js">`
