@@ -41,7 +41,7 @@
  */
 if ( ! function_exists('load_assets'))
 {
-	function load_assets($type, $https = false)
+	function load_assets($type = "", $https = false)
 	{
 		$CI =& get_instance();
 		$CI->load->library('asset');
@@ -79,7 +79,7 @@ if ( ! function_exists('load_assets'))
  */ 
 if ( ! function_exists('add_assets'))
 {
-	function add_assets($type = "", $files = "")
+	function add_assets($type = "", $files = array())
 	{
 		$CI =& get_instance();
 		$CI->load->library('asset');
