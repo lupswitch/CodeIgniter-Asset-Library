@@ -107,11 +107,19 @@ The HTML output will be like
 `<link type="text/css" rel="stylesheet" href="https://www.website.com/assets/css/style/main.css">`
 
 #####Output JS Asset
-`<?php echo asset_css("app/main.js", false); ?>`
+`<?php echo asset_js("app/main.js", false); ?>`
 The HTML output will be like
 `<script src="http://www.website.com/assets/js/app/main.js" type="text/javascript" charset="utf-8"></script>`
 
 #####Output image Asset
-`<?php echo asset_css("product/sample.jpg", false); ?>`
+`<?php echo asset_image("product/sample.jpg", false); ?>`
 The HTML output will be like
-`<img src="http://www.website.com/assets/js">`
+`<img src="http://www.website.com/assets/images/" />`
+
+#####Output LESS Asset
+`<?php echo asset_less("style/app.less", false); ?>`
+The HTML output will be like
+`<link rel="stylesheet/less" type="text/css" href="http://www.website.com/assets/less/style/app.less" />`
+
+
+
