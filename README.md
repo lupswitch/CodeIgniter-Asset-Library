@@ -93,8 +93,8 @@ class Welcome extends CI_Controller {
 #####Add multiple LESS Assets 
 `add_assets('less', array('1.less', '2.less'))`
 
-###3. Output Assets(Helper)
-Directly output asset without controller. following functions can be directly used at view html.
+###3. Directly Output Assets(Helper)
+Directly output assets without controller. following functions can be directly used at view html.
 #####Output CSS Asset
 `<?php echo asset_css("style/main.css", false); ?>`
 The HTML output will be like
@@ -122,4 +122,14 @@ The HTML output will be like
 `<link rel="stylesheet/less" type="text/css" href="http://www.website.com/assets/less/style/app.less" />`
 
 
+###3. Output Assets in view(Helper)
+After using add asset functions in controller, you need using following function to output asset html in view. 
 
+`<?php echo load_assets('css'); ?>`
+
+Above code will output all css assets that have been added in controller. 
+
+Also, All assets can be output in view by using:
+
+`<?php echo load_assets(); ?>`
+ 
