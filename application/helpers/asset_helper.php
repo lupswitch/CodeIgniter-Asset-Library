@@ -68,6 +68,62 @@ if ( ! function_exists('load_assets'))
 }
 
 /**
+ * Load assets
+ *
+ * load multiple type asset file, and output html code
+ *
+ * @access  public
+ * @param   array  asset type
+ * @param   boolen  enable/disable https access
+ * @return  string
+ */
+
+if ( ! function_exists('load_multiple_assets'))
+{
+	function load_multiple_assets($type = array(), $https = false)
+	{
+		$CI =& get_instance();
+        $CI->load->config("asset_config");
+        $CI->load->library('asset');
+        $assets_config = $CI->config->item('assets');
+        $assets_format = array();
+        if(isset($assets_config['format']))
+        {
+            $assets_format = $assets_config['format'];
+        }
+        $output = "";
+        if(!empty($assets_format))
+        {
+        	foreach($assets_format as $key => $format)
+        	{
+        		if(in_array($key, $type) || empty($type))
+        		{
+        			switch($key)
+					{
+						case "css":
+							$output .= $CI->asset->load_css		($https);
+							break;
+						case "js":
+							$output .= $CI->asset->load_js 		($https);
+							break;
+						case "image":
+							$output .= $CI->asset->load_image 	($https);
+							break;
+						case "less":
+							$output .= $CI->asset->load_less	 ($https);
+							break;
+						default:
+							break;
+					}
+        		} 
+        	}
+        }
+
+        return $output;
+	}
+}
+
+/**
  * Add asset files
  *
  * add multiple asset files
