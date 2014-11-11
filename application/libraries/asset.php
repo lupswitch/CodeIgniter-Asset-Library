@@ -322,12 +322,6 @@ class Asset {
         
         $assets_config = $CI->config->item('assets');
 
-        
-        if(isset($assets_config['enable']))
-        {
-            $this->enable = $assets_config['enable'];
-        }
-
         if(isset($assets_config['version']))
         {
             $this->version = $assets_config['version'];
@@ -362,14 +356,8 @@ class Asset {
 
         $asset_output = str_replace("{:url:}", $url."?version=".$this->version, $this->asset_format);
 
-        if($this->enable)
-        {
-            return $asset_output;
-        }
-        else
-        {
-            return "";
-        }
+        return $asset_output;
+        
     }
 
 }
