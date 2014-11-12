@@ -132,7 +132,19 @@ Above code will output all css assets that have been added in controller.
 Also, All assets can be output in view by using:
 
 `<?php echo load_assets(); ?>`
- 
+
+###4. Output multiple type asset files in view(Helper)
+One function can output all asset files in view.
+
+`<?php echo load_multiple_assets();?>`
+
+Also, filters can be used for output multiple type assets.
+
+`<?php echo load_multiple_assets(array('css', 'less'));?>`
+
+
+
+
 ##Library
 ###1. Loading Library
 Asset helper can be auto load by autoload config. It also can be loaded on controller like: 
