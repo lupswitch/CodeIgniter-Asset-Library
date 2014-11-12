@@ -259,3 +259,78 @@ if ( ! function_exists('asset_less'))
 	}
 }
 
+/**
+ * print out external css asset as html
+ *
+ * print out css html element like <link type="text/css" href="" rel="stylesheet">
+ *
+ * @access  public
+ * @param   string  external asset url
+ * @return  string
+ */
+if ( ! function_exists('external_css'))
+{
+	function external_css($url = "")
+	{
+		$CI =& get_instance();
+		$CI->load->library('asset');
+		return $CI->asset->external_asset("css", $url);
+	}
+}
+
+/**
+ * print out external js asset as html
+ *
+ * print out js html element like <script type="text/javascript" src="">
+ *
+ * @access  public
+ * @param   string  external asset url
+ * @return  string
+ */
+if ( ! function_exists('external_js'))
+{
+	function external_js($url = "")
+	{
+		$CI =& get_instance();
+		$CI->load->library('asset');
+		return $CI->asset->external_asset("js", $url);
+	}
+}
+
+/**
+ * print out external image asset as html
+ *
+ * print out image html element like <img src="">
+ *
+ * @access  public
+ * @param   string  external asset url
+ * @return  string
+ */
+if ( ! function_exists('external_image'))
+{
+	function external_image($url = "")
+	{
+		$CI =& get_instance();
+		$CI->load->library('asset');
+		return $CI->asset->external_asset("image", $url);
+	}
+}
+
+/**
+ * print out external less asset as html
+ *
+ * print out less html element like <link rel="stylesheet/less" type="text/css" href="style.less">
+ *
+ * @access  public
+ * @param   string  external asset url
+ * @return  string
+ */
+if ( ! function_exists('external_less'))
+{
+	function external_less($url = "")
+	{
+		$CI =& get_instance();
+		$CI->load->library('asset');
+		return $CI->asset->external_asset("less", $url);
+	}
+}

@@ -360,4 +360,42 @@ class Asset {
         
     }
 
+    /**
+     * print out external asset link as html
+     *
+     * print out html element for exteral asset such as css, js, less and image
+     *
+     * @access  private
+     * @param   string  asset type
+     * @param   string  link of external asset
+     * @return  string
+     */
+    public function external_asset($type, $url)
+    {
+        $asset_output = "";
+
+        if($url == "")
+        {
+            return $asset_output;
+        }
+
+        $CI =& get_instance();
+        $CI->load->config("asset_config");
+        $assets_config = $CI->config->item('assets');
+
+        if(isset($assets_config['format']))
+        {
+            $this->format = $assets_config['format'];
+        }
+        
+        if(isset($this->format[$type]))
+        {
+            $this->asset_format = $this->format[$type];
+        }
+
+        $asset_output = str_replace("{:url:}", $url, $this->asset_format);
+
+        return $asset_output;
+    } 
+
 }
