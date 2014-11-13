@@ -143,6 +143,16 @@ Also, filters can be used for output multiple type assets.
 `<?php echo load_multiple_assets(array('css', 'less'));?>`
 
 
+###5. Output external assets in view
+Project may need load external assets, Assets come from third party. In this case, following functions can be used in view. 
+
+`<?php echo external_css('http://thirdparty.com/package.css');?>`
+
+`<?php echo external_js('http://thirdparty.com/package.js');?>`
+
+`<?php echo external_image('http://thirdparty.com/package.png');?>`
+
+`<?php echo external_less('http://thirdparty.com/package.less');?>`
 
 
 ##Library
