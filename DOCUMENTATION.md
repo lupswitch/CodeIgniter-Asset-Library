@@ -14,3 +14,15 @@ class Welcome extends CI_Controller {
 }
 ```
 
+###2. Functions
+
+#### add_assets
+`public`
+
+add multiple asset files
+
+ - Params
+	 - string: asset type
+	 - array: file name
+ - Return
+	 - null
