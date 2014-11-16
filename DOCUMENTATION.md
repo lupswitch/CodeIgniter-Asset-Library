@@ -26,3 +26,29 @@ add multiple asset files
 	 - array: file name
  - Return
 	 - null
+
+---
+
+#### add_css
+`public`
+
+add single css file as asset
+
+ - Params
+	 - string: file name
+ - Return
+	 - null
+
+---
+
+#### add_js
+`public`
+
+add single js file as asset
+
+ - Params
+	 - string: file name
+ - Return
+	 - null
+
+---
