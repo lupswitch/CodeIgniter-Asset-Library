@@ -52,3 +52,27 @@ add single js file as asset
 	 - null
 
 ---
+
+#### add_image
+`public`
+
+add single image file as asset
+
+ - Params
+	 - string: file name
+ - Return
+	 - null
+
+---
+
+#### add_less
+`public`
+
+add single less file as asset
+
+ - Params
+	 - string: file name
+ - Return
+	 - null
+
+---
