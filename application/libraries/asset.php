@@ -136,7 +136,6 @@ class Asset {
      * add single file as asset
      *
      * @access  private
-     * @param   string  file type
      * @param   string  file name
      * @return  null
      */ 
@@ -152,7 +151,7 @@ class Asset {
      *
      * @access  public
      * @param   boolen  enable/disable https access
-     * @return  null
+     * @return  string
      */
     public function load_css($https = false)
     {
@@ -166,7 +165,7 @@ class Asset {
      *
      * @access  public
      * @param   boolen  enable/disable https access
-     * @return  null
+     * @return  string
      */
     public function load_js($https = false)
     {
@@ -180,7 +179,7 @@ class Asset {
      *
      * @access  public
      * @param   boolen  enable/disable https access
-     * @return  null
+     * @return  string
      */
     public function load_image($https = false)
     {
@@ -194,7 +193,7 @@ class Asset {
      *
      * @access  public
      * @param   boolen  enable/disable https access
-     * @return  null
+     * @return  string
      */
     public function load_less($https = false)
     {
