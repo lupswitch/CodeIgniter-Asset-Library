@@ -76,3 +76,15 @@ add single less file as asset
 	 - null
 
 ---
+
+#### add
+`public`
+
+add single file as asset
+
+ - Params
+	 - boolen: enable/disable https access
+ - Return
+	 - null
+
+---
