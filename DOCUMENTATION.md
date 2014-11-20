@@ -88,3 +88,15 @@ add single file as asset
 	 - null
 
 ---
+
+#### load_css
+`public`
+
+add single file as asset
+
+ - Params
+	 - boolen: enable/disable https access
+ - Return
+	 - string
+
+---
