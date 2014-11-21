@@ -92,7 +92,20 @@ add single file as asset
 #### load_css
 `public`
 
-add single file as asset
+load single or multiple css asset
+
+ - Params
+	 - boolen: enable/disable https access
+ - Return
+	 - string
+
+---
+
+
+#### load_js
+`public`
+
+load single or multiple js asset
 
  - Params
 	 - boolen: enable/disable https access
