@@ -101,11 +101,22 @@ load single or multiple css asset
 
 ---
 
-
 #### load_js
 `public`
 
 load single or multiple js asset
+
+ - Params
+	 - boolen: enable/disable https access
+ - Return
+	 - string
+
+---
+
+#### load_image
+`public`
+
+load single or multiple image asset
 
  - Params
 	 - boolen: enable/disable https access
