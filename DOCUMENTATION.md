@@ -124,3 +124,15 @@ load single or multiple image asset
 	 - string
 
 ---
+
+#### load_less
+`public`
+
+load single or multiple less asset
+
+ - Params
+	 - boolen: enable/disable https access
+ - Return
+	 - string
+
+---
