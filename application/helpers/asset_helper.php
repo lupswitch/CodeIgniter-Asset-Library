@@ -148,7 +148,7 @@ if ( ! function_exists('add_assets'))
  *
  * add single file as asset
  *
- * @access  private
+ * @access  public
  * @param   string  file type
  * @param   string  file name
  * @return  null
