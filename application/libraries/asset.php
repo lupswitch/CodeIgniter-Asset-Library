@@ -205,7 +205,7 @@ class Asset {
      *
      * load multiple asset file, and output html code
      *
-     * @access  public
+     * @access  private
      * @param   string  asset type
      * @param   boolen  enable/disable https access
      * @return  string
@@ -364,7 +364,7 @@ class Asset {
      *
      * print out html element for exteral asset such as css, js, less and image
      *
-     * @access  private
+     * @access  public
      * @param   string  asset type
      * @param   string  link of external asset
      * @return  string
