@@ -136,3 +136,16 @@ load single or multiple less asset
 	 - string
 
 ---
+
+#### load
+`private`
+
+load single or multiple less asset
+
+ - Params
+	 - string: asset type
+	 - boolen: enable/disable https access
+ - Return
+	 - string
+
+---
