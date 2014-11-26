@@ -149,3 +149,16 @@ load single or multiple less asset
 	 - string
 
 ---
+
+#### asset_html_css
+`public`
+
+print out css html element like `<link type="text/css" href="" rel="stylesheet">`
+
+ - Params
+	 - string: file name
+	 - boolen: enable/disable https access
+ - Return
+	 - string
+
+---
