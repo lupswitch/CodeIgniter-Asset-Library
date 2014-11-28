@@ -162,3 +162,16 @@ print out css html element like `<link type="text/css" href="" rel="stylesheet">
 	 - string
 
 ---
+
+#### asset_html_js
+`public`
+
+print out js html element like `<script type="text/javascript" src="">`
+
+ - Params
+	 - string: file name
+	 - boolen: enable/disable https access
+ - Return
+	 - string
+
+---
