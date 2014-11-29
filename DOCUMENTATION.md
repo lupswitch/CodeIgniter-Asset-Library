@@ -175,3 +175,16 @@ print out js html element like `<script type="text/javascript" src="">`
 	 - string
 
 ---
+
+#### asset_html_image
+`public`
+
+print out image html element like `<img src="">`
+
+ - Params
+	 - string: file name
+	 - boolen: enable/disable https access
+ - Return
+	 - string
+
+---
