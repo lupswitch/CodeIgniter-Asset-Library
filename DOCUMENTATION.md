@@ -188,3 +188,16 @@ print out image html element like `<img src="">`
 	 - string
 
 ---
+
+#### asset_html_less
+`public`
+
+print out less html element like `<link rel="stylesheet/less" type="text/css" href="style.less">`
+
+ - Params
+	 - string: file name
+	 - boolen: enable/disable https access
+ - Return
+	 - string
+
+---
