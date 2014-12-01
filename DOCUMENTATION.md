@@ -201,3 +201,16 @@ print out less html element like `<link rel="stylesheet/less" type="text/css" hr
 	 - string
 
 ---
+
+#### asset_html_setting
+`public`
+
+print out html element for different type such as css, js, less and image
+
+ - Params
+	 - string: file name
+	 - boolen: enable/disable https access
+ - Return
+	 - string
+
+---
