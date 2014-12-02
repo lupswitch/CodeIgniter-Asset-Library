@@ -203,7 +203,7 @@ print out less html element like `<link rel="stylesheet/less" type="text/css" hr
 ---
 
 #### asset_html_setting
-`public`
+`private`
 
 print out html element for different type such as css, js, less and image
 
